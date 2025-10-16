@@ -1,0 +1,28 @@
+---
+// src/pages/portfolio.astr
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Header from '../components/Header.astro';
+
+import PortfolioHero from '../components/PortfolioHero.astro';
+import FeaturedProjects from '../components/FeaturedProjects.astro';
+// You will also import your portfolio grid component here later
+---
+<Layout title="Our Work - Portfolio">
+  
+  <Header />
+
+  <main>
+    <PortfolioHero />
+    <FeaturedProjects />
+    
+    <!--
+      This is where you would display the actual portfolio projects.
+      You could reuse the grid from the PortfolioSection component,
+      or create a new, more detailed one for this page.
+    -->
+    
+  </main>
+  
+</Layout>

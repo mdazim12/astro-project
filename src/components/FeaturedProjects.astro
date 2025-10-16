@@ -1,0 +1,74 @@
+---
+// src/components/FeaturedProjects.astro
+
+const projects = [
+  {
+    title: 'Biddaan',
+    subtitle: 'Revolutionizing Learning in Bangladesh',
+    challenge: 'Educators lacked a localized LMS.',
+    solution: 'We built a multi-vendor LMS with live classes, question banks, and analytics.',
+    impact: 'Empowered 1000+ educators to digitize their business.',
+  },
+  {
+    title: 'Genius AI',
+    subtitle: 'Multimodal AI Assistant',
+    challenge: 'Users wanted a reliable AI chat assistant.',
+    solution: 'Built GPT-3/4 chat with vision & image analysis.',
+    impact: '100K+ users in 3 weeks.',
+  },
+  {
+    title: 'TestReach',
+    subtitle: 'Trusted by ACCA & British Council',
+    challenge: 'Organizations needed secure online assessments.',
+    solution: 'We built a SaaS platform with remote proctoring & scalability.',
+    impact: 'Trusted globally, delivering millions of exams.',
+  },
+];
+---
+<section class="bg-gray-50 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-8">
+    
+    <div class="text-center mb-16">
+      <span class="inline-block border border-orange-200 text-orange-500 rounded-md px-3 py-1 text-sm font-medium">
+        Featured Projects
+      </span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900">
+        Flagship Success Stories
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+      {projects.map((project) => (
+        // --- THIS IS THE UPDATED DIV ---
+        <div class="
+            relative p-8 rounded-2xl border flex flex-col h-full
+            bg-white border-gray-200
+            transition-all duration-300 transform 
+            hover:-translate-y-1 hover:shadow-2xl 
+            hover:bg-gradient-to-br from-white to-orange-50
+        ">
+          
+          <div class="absolute top-6 right-6 w-16 h-16 bg-pink-100 rounded-full opacity-50"></div>
+
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold text-gray-900">{project.title}</h3>
+            <p class="mt-1 text-lg font-semibold text-gray-700">{project.subtitle}</p>
+            <div class="w-12 h-1 bg-red-400 my-4"></div>
+          </div>
+
+          <div class="relative z-10 flex-grow text-gray-600 space-y-2">
+            <p><strong class="text-gray-800">Challenge:</strong> {project.challenge}</p>
+            <p><strong class="text-gray-800">Solution:</strong> {project.solution}</p>
+            <p><strong class="text-gray-800">Impact:</strong> {project.impact}</p>
+          </div>
+
+          <div class="relative z-10 mt-8">
+            <a href="#" class="inline-block bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              Read Case Study &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
