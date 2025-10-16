@@ -1,0 +1,58 @@
+---
+// src/components/CompanyStory.astro
+
+const values = [
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/general/target.png', // Placeholder icon
+    title: 'Our Mission',
+    description: 'To deliver world-class, scalable, and future-ready software solutions through innovation, strong processes, and a passionate team—empowering clients to achieve excellence in the digital era.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/general/innovation.png', // Placeholder icon
+    title: 'Our Vision',
+    description: 'To become a globally recognized software partner known for reliability, agility, and quality—shaping the future of technology and transforming ideas into impactful digital experiences.',
+  },
+]
+---
+<section class="relative bg-gradient-to-br from-orange-50 via-red-50 to-orange-100 py-20 md:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-8 relative z-10">
+    
+    <!-- Section Heading -->
+    <div class="text-center max-w-3xl mx-auto">
+      <span class="inline-block bg-green-100 text-green-800 rounded-md px-4 py-1 text-sm font-medium">
+        About
+      </span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900">
+        Who We Are
+      </h2>
+      <p class="mt-2 text-2xl font-bold text-orange-500">Our Company Story</p>
+      
+      <div class="mt-6 text-left text-gray-600 space-y-4">
+        <p>
+          Founded in 2015, NerdDevs delivers world-class software solutions worldwide. We’re proud to be the technical partner of TestReach, a leader in online assessment, whose platform is trusted by organizations like the British Council, ACCA, CIPS, and SQL. NerdDevs also built Second Texting Number, a popular messaging app used widely in the USA.
+        </p>
+        <p>
+          Our tech stack includes React, Vue.js, Flutter, Node.js, Next.js, MongoDB, REDIS, Postgres, AWS, and Nginx. With agile, process-driven engineers and a commitment to quality, we follow Scrum, keeping clients continuously updated. Choose NerdDevs for scalable, quality-driven projects, both large and small.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+      {values.map((value) => (
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 flex flex-col items-center text-center">
+          <div class="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-full mb-4">
+            <img src={value.icon} alt={value.title} class="w-8 h-8">
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900">{value.title}</h3>
+          <p class="mt-2 text-gray-600">{value.description}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Decorative Shapes -->
+  <div class="absolute top-1/2 left-10 w-8 h-12 bg-blue-300 opacity-50 rounded-sm -z-0"></div>
+  <div class="absolute top-1/4 right-16 w-8 h-8 border-2 border-green-400 opacity-75 rounded-md transform rotate-45 -z-0"></div>
+</section>

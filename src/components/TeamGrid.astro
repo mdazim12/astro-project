@@ -1,0 +1,52 @@
+---
+// src/components/TeamGrid.astro
+
+// 1. Define the "Props" the component expects.
+// This is like setting up the inputs for your component.
+// We're telling it: "You will receive a prop called 'members', 
+// and it will be an array of team member objects."
+export interface TeamMember {
+  id: string;
+  title: string;
+  content: string;
+  featuredImage: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    }
+  } | null; // Can be null if no image is set
+}
+
+export interface Props {
+  members: TeamMember[];
+}
+
+const { members } = Astro.props;
+---
+
+<!-- 2. This is the presentation logic, moved from your team.astro page -->
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      
+      <!-- 3. We now map over the 'members' prop that was passed in -->
+      {members.map((member) => (
+        <div class="text-center bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          
+          <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 mb-4 flex items-center justify-center overflow-hidden">
+            {member.featuredImage ? (
+              <img src={member.featuredImage.node.sourceUrl} alt={member.featuredImage.node.altText || member.title} class="w-full h-full object-cover" />
+            ) : (
+              <span class="text-gray-500 text-sm">No Image</span>
+            )}
+          </div>
+          
+          <h3 class="text-xl font-bold text-gray-900">{member.title}</h3>
+          
+          <div class="text-gray-500" set:html={member.content}></div>
+          
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

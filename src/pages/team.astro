@@ -1,0 +1,65 @@
+---
+// src/pages/team.astro
+
+
+
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import "../styles/global.css";
+import TeamGrid from '../components/TeamGrid.astro'; // 1. Import your new component
+import CompanyStory from '../components/CompanyStory.astro';
+
+// --- Data fetching logic STAYS on the page ---
+const query = `
+  query GetAllTeamMembersWithSocials {
+    allTeamMember {
+      nodes {
+        id
+        databaseId
+        title
+        slug
+        content
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+      }
+    }
+  }
+`;
+
+const response = await fetch('https://spindle.insectsexpert.com/graphql', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ query }),
+});
+
+const json = await response.json();
+const teamMembers = json.data?.allTeamMember?.nodes || [];
+
+// Page-specific content
+const pageTitle = "Meet Our Team";
+const pageSubtitle = "The talented individuals behind our success.";
+---
+<Layout title={pageTitle}>
+  <Header />
+
+  <main>
+
+
+    <CompanyStory />
+
+     <section class="bg-gray-50 py-20 text-center">
+      <div class="max-w-7xl mx-auto px-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">{pageTitle}</h1>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">{pageSubtitle}</p>
+      </div>
+    </section>
+
+    <TeamGrid members={teamMembers} />
+
+
+  </main>
+</Layout>
