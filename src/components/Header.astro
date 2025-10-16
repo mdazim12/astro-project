@@ -1,0 +1,32 @@
+---
+// src/components/Header.astro
+---
+<header class="bg-white shadow-sm w-full py-4 px-8 ">
+  <div class="flex justify-between items-center  p-5  z-50 -translate-x-1/2 backdrop-blur-sm bg-white/90 border border-gray-200 fixed left-1/2 max-w-7xl mx-2 rounded-2xl shadow-lg top-4 transform w-full ">
+    
+    <a href="/" class="text-2xl font-bold">
+      <img src="https://d2rxyutzbtg0bt.cloudfront.net/images/nerddevs-logo.png" alt="NerdDevs Logo" class="h-8 w-auto">
+    </a>
+
+    <nav class="hidden md:flex">
+      <ul class="flex items-center space-x-8 text-gray-600 font-medium">
+        <li><a href="#" class="hover:text-orange-500 transition-colors">Home</a></li>
+        <li><a href="#" class="hover:text-orange-500 transition-colors">Portfolio</a></li>
+        <li><a href="#" class="hover:text-orange-500 transition-colors">Gallery</a></li>
+        <li><a href="#" class="hover:text-orange-500 transition-colors">About</a></li>
+        <li><a href="#" class="hover:text-orange-500 transition-colors">How We Work</a></li>
+        <li><a href="#" class="hover:text-orange-500 transition-colors">Blog</a></li>
+      </ul>
+    </nav>
+
+    <a href="#" class="hidden md:inline-block bg-orange-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-orange-600 transition-colors">
+      Contact Now
+    </a>
+    
+    <button class="md:hidden text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
+  </div>
+</header>
