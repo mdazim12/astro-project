@@ -1,0 +1,70 @@
+---
+// src/components/ServicesSection.astro
+
+const services = [
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/artificial-intelligence.svg',
+    title: 'AI-Powered Solutions to Automate Your Business',
+    description: 'We build intelligent tools using OpenAI, image-generation, and automation frameworks to streamline your operations, support systems, and customer experiences.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/software-development.svg',
+    title: 'Scalable EdTech Platforms & LMS Development',
+    description: 'From online course marketplaces to exam engines—we design modern LMS platforms that are fast, flexible, and built to grow with your business.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/apps.svg',
+    title: 'Custom Web Application Development for Startups & Enterprises',
+    description: 'Whether it\'s a SaaS product or internal dashboard, our team delivers secure, scalable, and high-performance web apps tailored to your goals.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/web-design.svg',
+    title: 'Cross-Platform Mobile App Development for iOS & Android',
+    description: 'Using Flutter, Swift, and React Native, we build powerful mobile apps with pixel-perfect design and smooth performance—published on the App Store and Play Store.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/consultancy.svg',
+    title: 'Full-Stack Engineering with Reliable Backend Systems',
+    description: 'Our backend systems transfer millions of messages, API calls, and user actions monthly—engineered with Node.js, MongoDB, Redis, and cloud-native tools.',
+  },
+  {
+    icon: 'https://d2rxyutzbtg0bt.cloudfront.net/images/icons/consultancy.svg',
+    title: 'Remote Development Teams & Agile Consultancy',
+    description: 'Need to scale your product team fast? We provide dedicated engineers, tech leads, and Agile coaching to help you ship faster and smarter.',
+  },
+];
+---
+<section class="bg-gray-50 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-8">
+    
+    <div class="text-center mb-16">
+      <span class="inline-block border border-orange-200 text-orange-500 rounded-md px-3 py-1 text-sm font-medium">
+        Services
+      </span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900">
+        Custom Software Development Tailored to Your Business
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        From EdTech platforms to AI-powered apps, we design, build, and scale solutions that drive measurable impact.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="
+            p-8 rounded-2xl border transition-all duration-300 transform 
+            bg-white border-gray-200 
+            hover:-translate-y-1 hover:bg-orange-50 hover:border-orange-200 hover:shadow-md
+        ">
+          <div class=" items-center space-x-4 mb-4">
+            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-100 rounded-full">
+              <img src={service.icon} alt={service.title} class="w-12 h-12 mb-3">
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">{service.title}</h3>
+          </div>
+          <p class="text-gray-600">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
