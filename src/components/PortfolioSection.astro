@@ -1,0 +1,70 @@
+---
+// src/components/PortfolioSection.astro
+
+// You can pass the portfolio items as props later for a dynamic site
+const projects = [
+  {
+    logo: 'https://d2rxyutzbtg0bt.cloudfront.net/images/portfolio/Biddan_Logo_300x132.png',
+    title: 'Biddaan (EdTech LMS)',
+    description: 'Empowered 1,000+ educators to digitize learning & assessments.',
+  },
+  {
+    logo: 'https://d2rxyutzbtg0bt.cloudfront.net/images/portfolio/Geniuslogov2.png',
+    title: 'Genius AI',
+    description: 'Hit 100K+ users in 3 weeks—multimodal AI assistant.',
+  },
+  {
+    logo: 'https://d2rxyutzbtg0bt.cloudfront.net/images/portfolio/Testreachv2-1.png',
+    title: 'TestReach',
+    description: 'Secure exam delivery—trusted by ACCA & British Council.',
+  },
+];
+---
+<section class="bg-gray-50 py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-8">
+    
+    <div class="text-center">
+      <span class="inline-block border border-orange-200 text-orange-500 rounded-md px-3 py-1 text-sm font-medium">
+        Portfolio
+      </span>
+      <h2 class="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900">
+        Proven Solutions Trusted by Thousands
+      </h2>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        Our portfolio blends innovation, scale, and real-world results. Here are some highlights.
+      </p>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="#" class="inline-block border border-gray-300 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
+        View All Projects <span class="text-orange-500">&rsaquo;</span>
+      </a>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      {projects.map((project) => (
+        <div class="bg-white rounded-2xl shadow-lg p-8 flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+          
+          <div class="relative h-40 flex items-center justify-center bg-white rounded-lg mb-6">
+            <div class="absolute top-0 right-5 w-16 h-16 bg-pink-100 rounded-full -z-0 opacity-50"></div>
+            <img src={project.logo} alt={`${project.title} Logo`} class="relative z-10 max-h-16 w-auto">
+          </div>
+
+          <div class="flex-grow">
+            <h3 class="text-2xl font-bold text-gray-900">{project.title}</h3>
+            <div class="w-12 h-1 bg-orange-500 my-4"></div>
+            <p class="text-gray-600">{project.description}</p>
+          </div>
+
+          <div class="mt-6">
+            <a href="#" class="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              Read Case Study &rarr;
+            </a>
+          </div>
+        </div>
+      ))}
+      
+    </div>
+  </div>
+</section>
